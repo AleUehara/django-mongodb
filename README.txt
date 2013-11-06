@@ -17,6 +17,10 @@ DATABASES = {
    'default' : {
       'ENGINE' : 'django_mongodb_engine',
       'NAME' : 'my_database'
+      'USER': 'novoUsuario',
+      'PASSWORD': 'novaSenha',
+      'HOST' : 'localhost',
+      'PORT': 27017,
    }
 }
 
@@ -51,3 +55,21 @@ urls.py --> from django.contrib import admin
 urls.py --> admin.autodiscover()
 urls.py --> url(r'^admin/', include(admin.site.urls)),
 settings.py --> 'django.contrib.admin' 
+
+--------------------
+Initialize Mongo
+--------------------
+mongod --auth
+mongod --config /etc/mongodb.conf
+
+--------------------
+mongo authentication
+--------------------
+./mongo
+use admin;
+db.addUser('admin', '123');
+
+use my_database;
+db.addUser('novoUsuario', 'novaSenha');
+
+db.auth('novoUsuario', 'novaSenha');
