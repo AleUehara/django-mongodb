@@ -73,3 +73,8 @@ use my_database;
 db.addUser('novoUsuario', 'novaSenha');
 
 db.auth('novoUsuario', 'novaSenha');
+
+--------------------
+mongo django filter
+--------------------
+copy filterspecs.py to django/contrib/admin/filterspecs.py
